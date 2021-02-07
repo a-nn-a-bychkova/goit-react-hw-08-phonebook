@@ -4,12 +4,13 @@ import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
 import { phonebookOperations, phonebookSelectors } from '../redux';
+import { fetchContacts } from '../redux/phonebook-operations';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(phonebookOperations.fetchContacts());
-  }, []);
+    dispatch(fetchContacts());
+  }, [dispatch]);
   const contacts = useSelector(phonebookSelectors.getContacts);
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import phonebookOperations from '../../redux/phonebook-operations';
+import { addContact } from '../../redux/phonebook-operations';
 import { phonebookSelectors } from '../../redux';
 import s from '../styles/Input.module.css';
 
@@ -38,7 +38,7 @@ function ContactForm() {
         name,
         number,
       };
-      dispatch(phonebookOperations.addContact(newContact));
+      dispatch(addContact(newContact));
     }
   };
   const reset = () => {
