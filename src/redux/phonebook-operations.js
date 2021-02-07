@@ -19,15 +19,17 @@ export const addContact = createAsyncThunk(
       name,
       number,
     };
-    const data = await contactsAPI.addContact(newContact);
-    return data;
+    const contact = await contactsAPI.addContact(newContact);
+    console.log(contact);
+    return contact;
   },
 );
 
 export const deleteContact = createAsyncThunk(
   'phonebook/deleteContact',
   async id => {
-    const data = await contactsAPI.deleteContact(id);
-    return data;
+    const { data } = await contactsAPI.deleteContact(id);
+    console.log('contactID', id);
+    return id;
   },
 );
