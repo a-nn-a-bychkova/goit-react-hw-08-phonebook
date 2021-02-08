@@ -7,7 +7,7 @@ import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 import Container from './Container';
 import { fetchContacts } from '../redux/phonebook-operations';
-// import {authOperations} from '../redux/auth';
+import { authOperations } from '../redux/auth';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
@@ -19,6 +19,11 @@ function App() {
   //   dispatch(phonebookOperations.fetchContacts());
   // }, [dispatch]);
   // const contacts = useSelector(phonebookSelectors.getContacts);
+  const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(authOperations.fetchCurrentUser());
+  // }, [dispatch]);
 
   return (
     <Container>
