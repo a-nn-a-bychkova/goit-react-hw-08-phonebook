@@ -14,17 +14,17 @@ import Filter from './Filter';
 import { phonebookOperations, phonebookSelectors } from '../redux';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(phonebookOperations.fetchContacts());
-  }, [dispatch]);
-  const contacts = useSelector(phonebookSelectors.getContacts);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(phonebookOperations.fetchContacts());
+  // }, [dispatch]);
+  // const contacts = useSelector(phonebookSelectors.getContacts);
 
   return (
     <Container>
       <AppBar />
       <Switch>
-        <Route path="/contacts" component={ContactsView} />
+        {/* <Route path="/contacts" component={ContactsView} /> */}
         <Route path="/register" component={RegisterView} />
         <Route path="/login" component={LoginView} />
       </Switch>

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// axios.defaults.baseURL = 'http://goit-phonebook-api.herokkapp.com';
+axios.defaults.baseURL = 'http://goit-phonebook-api.herokkapp.com';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+// axios.defaults.baseURL = 'http://localhost:';
 export async function fetchContacts() {
   const { data } = await axios.get('/contacts');
   return data;
