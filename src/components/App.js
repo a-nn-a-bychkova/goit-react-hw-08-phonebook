@@ -6,16 +6,18 @@ import ContactsView from '../views/ContactsView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 import Container from './Container';
-import { phonebookOperations, phonebookSelectors } from '../redux';
 import { fetchContacts } from '../redux/phonebook-operations';
 // import {authOperations} from '../redux/auth';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+import Filter from './Filter';
+import { phonebookOperations, phonebookSelectors } from '../redux';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(phonebookOperations.fetchContacts());
   }, [dispatch]);
-  // const contacts = useSelector(authOperations.fetchCurrentUser);
   const contacts = useSelector(phonebookSelectors.getContacts);
 
   return (
@@ -31,3 +33,23 @@ function App() {
 }
 
 export default App;
+
+// function App() {
+//   const dispatch = useDispatch();
+//   useEffect(() => {
+//     dispatch(fetchContacts());
+//   }, [dispatch]);
+//   // const contacts = useSelector(authOperations.fetchCurrentUser);
+//   const contacts = useSelector(phonebookSelectors.getContacts);
+
+//   return (
+//     <Container>
+//       <AppBar />
+//       <Switch>
+//         <Route path="/contacts" component={ContactsView} />
+//         <Route path="/register" component={RegisterView} />
+//         <Route path="/login" component={LoginView} />
+//       </Switch>
+//     </Container>
+//   );
+// }
