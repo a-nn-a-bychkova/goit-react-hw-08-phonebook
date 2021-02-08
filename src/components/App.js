@@ -1,26 +1,32 @@
 import { useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
+import AppBar from './AppBar';
+import ContactsView from '../views/ContactsView';
+import RegisterView from '../views/RegisterView';
+import LoginView from '../views/LoginView';
+import Container from './Container';
 import { phonebookOperations, phonebookSelectors } from '../redux';
 import { fetchContacts } from '../redux/phonebook-operations';
+// import {authOperations} from '../redux/auth';
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+  // const contacts = useSelector(authOperations.fetchCurrentUser);
   const contacts = useSelector(phonebookSelectors.getContacts);
 
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      {contacts.length > 0 ? <Filter /> : <p>Your phonebook is empty</p>}
-      <ContactList />
-    </div>
+    <Container>
+      <AppBar />
+      <Switch>
+        <Route path="/contacts" component={ContactsView} />
+        <Route path="/register" component={RegisterView} />
+        <Route path="/login" component={LoginView} />
+      </Switch>
+    </Container>
   );
 }
 
