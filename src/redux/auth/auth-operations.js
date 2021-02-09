@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+// const instance = axios.create({
+//   baseURL: 'https://goit-phonebook-api.herokuapp.com',
+// });
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const token = {

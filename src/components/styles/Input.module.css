@@ -16,6 +16,7 @@
 .Input {
   width: 250px;
 }
-button {
-  width: 100px;
+
+.Button {
+  width: 150px;
 }

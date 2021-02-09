@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDom from 'react-dom';
+import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { phonebookSelectors, phonebookOperations } from '../../redux/phonebook';
 import s from './ContactList.module.css';
@@ -15,14 +17,16 @@ function ContactList() {
           <p className={s.Text}>
             {name}: {number}
           </p>
-          <button
+          <Button
+            variant="contained"
+            color="primary"
             type="button"
             onClick={() => {
               onDeleteContact(id);
             }}
           >
             Delete
-          </button>
+          </Button>
         </li>
       ))}
     </ul>

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import ReactDom from 'react-dom';
+import Button from '@material-ui/core/Button';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
 
@@ -61,7 +63,9 @@ export default function LoginView() {
           />
         </label>
 
-        <button type="submit">Войти</button>
+        <Button variant="contained" color="primary" type="submit">
+          Войти
+        </Button>
       </form>
     </div>
   );

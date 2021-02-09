@@ -1,17 +1,12 @@
-import { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AppBar from './AppBar';
+import PrivateRoute from '../components/UserMenu/PrivateRoute';
+import PublicRoute from '../components/UserMenu/PublicRoute';
 import ContactsView from '../views/ContactsView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 import Container from './Container';
-import { fetchContacts } from '../redux/phonebook';
-import { authOperations } from '../redux/auth';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
-import { phonebookOperations, phonebookSelectors } from '../redux/phonebook';
 
 function App() {
   // const dispatch = useDispatch();
@@ -29,9 +24,15 @@ function App() {
     <Container>
       <AppBar />
       <Switch>
-        <Route path="/contacts" component={ContactsView} />
-        <Route path="/register" component={RegisterView} />
-        <Route path="/login" component={LoginView} />
+        <PrivateRoute path="/contacts">
+          <ContactsView />
+        </PrivateRoute>
+        <PublicRoute path="/register" restricted>
+          <RegisterView />
+        </PublicRoute>
+        <PublicRoute path="/login" restricted>
+          <LoginView />
+        </PublicRoute>
       </Switch>
     </Container>
   );

@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDom from 'react-dom';
+import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
 import defaultAvatar from './default-avatar.jpg';
@@ -24,10 +27,15 @@ export default function UserMenu() {
   return (
     <div style={styles.container}>
       <img src={avatar} alt="" width="32" style={styles.avatar} />
-      <span style={styles.name}>Добро пожаловать,{name}</span>
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
+      <span style={styles.name}>Добро пожаловать, {name}</span>
+      <Button
+        type="button"
+        variant="contained"
+        color="secondary"
+        onClick={() => dispatch(authOperations.logOut())}
+      >
         Выйти
-      </button>
+      </Button>
     </div>
   );
 }
