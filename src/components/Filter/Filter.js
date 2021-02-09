@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { phonebookSelectors, changeFilter } from '../../redux';
+import { phonebookSelectors, changeFilter } from '../../redux/phonebook';
 import s from '../styles/Input.module.css';
 
 function Filter() {

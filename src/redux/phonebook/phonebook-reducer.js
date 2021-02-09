@@ -5,11 +5,12 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
-} from '../redux/phonebook-operations';
+} from './phonebook-operations';
 
 const filter = createReducer('', {
   [changeFilter]: (_, action) => action.payload,
 });
+
 // const conactsSlice = createSlice({
 //   name: 'contacts',
 //   initialState: { contacts: [] },
@@ -22,6 +23,7 @@ const filter = createReducer('', {
 //       state.filter(({ id }) => id !== payload),
 //   },
 // });
+
 const contacts = createReducer([], {
   [fetchContacts.fulfilled]: (_, { payload }) => payload,
   [addContact.fulfilled]: (state, { payload }) => {

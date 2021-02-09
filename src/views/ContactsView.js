@@ -4,9 +4,7 @@ import Container from '../components/Container';
 import ContactList from '../components/ContactList';
 import ContactForm from '../components/ContactForm';
 import Filter from '../components/Filter';
-import { fetchContacts } from '../redux/phonebook-operations';
-import { phonebookSelectors } from '../redux';
-// import { contactsOperations, contactsSelectors } from '../redux/contacts';
+import { phonebookSelectors, phonebookOperations } from '../redux/phonebook';
 
 const barStyles = {
   display: 'flex',
@@ -19,7 +17,7 @@ export default function ContactsView(params) {
   const contacts = useSelector(phonebookSelectors.getContacts);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(phonebookOperations.fetchContacts());
   }, [dispatch]);
 
   return (

@@ -6,12 +6,12 @@ import ContactsView from '../views/ContactsView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
 import Container from './Container';
-import { fetchContacts } from '../redux/phonebook-operations';
+import { fetchContacts } from '../redux/phonebook';
 import { authOperations } from '../redux/auth';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
-import { phonebookOperations, phonebookSelectors } from '../redux';
+import { phonebookOperations, phonebookSelectors } from '../redux/phonebook';
 
 function App() {
   // const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function App() {
     <Container>
       <AppBar />
       <Switch>
-        {/* <Route path="/contacts" component={ContactsView} /> */}
+        <Route path="/contacts" component={ContactsView} />
         <Route path="/register" component={RegisterView} />
         <Route path="/login" component={LoginView} />
       </Switch>
